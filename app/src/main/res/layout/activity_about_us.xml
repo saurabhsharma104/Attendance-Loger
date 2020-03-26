@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsActivity">
+
+    <TextView
+        android:id="@+id/aboutus_desplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="5dp"
+        android:text="The Attendance loger app manages the all academic attendance record of every students. It has been built to eliminate the time and effort wasted in taking attendances and checking the records and reduces the amount of paper work. This is an android mobile app. This application also provides the time table for teacher. It’s built to be used for college faculty so that they may take student attendance in their mobile Phones.
+
+\n\nThe app can be further enhanced and several other functionalities can be added and these functionalities   can be like :-
+we will also update the record of previous years.
+We will add more department of our college after success of this app.
+The application will provide the functionality of  track the root of college vehical.
+The application will provide the time table information of teachers.
+The application will provide the limited time for take attendance.\nThe app eliminates the use of paperwork needed for attendance marking and monitoring. This gives over all performance of class in attendance. The guardian’s will able to check the absence or presence of their ward with the help of this app. This application is very helpful for the teachers. Attendance loger is to develop for computerized the tradition way of taking attendance. Teachers can fill the attendance of students in this app.
+"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</ScrollView>

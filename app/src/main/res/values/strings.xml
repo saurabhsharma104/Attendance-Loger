@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Attendance Loger</string>
+    <string name="bgimage">for bgimage</string>
+    <string name="developer">by saurabh sharma</string>
+    <string name="select_class">Tap to view</string>
+    <string name="addstudent">Add Student</string>
+    <string name="addattendance">Add Attendance</string>
+    <string name="viewstudent">View Student</string>
+    <string name="viewattendance">View Attendance</string>
+    <string name="addstudescrip">For Add a Student</string>
+    <string name="addattendencedescrip">For take attendence</string>
+    <string name="timetable">Time Table</string>
+    <string name="setting">Setting</string>
+    <string name="timetableactivitydescrip">For Time Table</string>
+    <string name="entername">STUDENT\'S NAME</string>
+    <string name="fathername">FATHER\'S NAME</string>
+    <string name="enternumber">MOBILE NUMBER</string>
+    <string name="enterrollno">ROLL NO.</string>
+    <string name="enteraddress">ADDRESS</string>
+    <string name="enterclass">CLASS</string>
+    <string name="present">Present</string>
+    <string name="absent">Absent</string>
+    <string name="help">RESULT NOT FOUND....</string>
+    <string name="changebg">Change Background</string>
+    <string name="viewallstudents">NO DATA FOUND</string>
+    <string name="add">Add Time Table</string>
+    <string name="pno">Period</string>
+    <string name="descrip">Description</string>
+</resources>

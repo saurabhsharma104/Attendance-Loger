@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    tools:context=".TimeTableActivity">
+
+    <Button
+        android:id="@+id/addupdates"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:onClick="addTimeTables"
+        android:padding="20dp"
+        android:text="ADD"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="298dp"
+        android:layout_height="63dp"
+        android:layout_margin="10dp"
+        android:onClick="viewTimeTable"
+        android:padding="10dp"
+        android:text="VIEW"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/display_timetable"
+        android:layout_width="199dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Please Add Time Table"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addupdates" />
+    </ScrollView>
+
+</LinearLayout>
