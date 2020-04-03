@@ -5,12 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class StudentInfo extends SQLiteOpenHelper
 {
     private static final String DATABASE_NAME = "appdb";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
     public static final String TABLE_NAME = "students";
     public static final String TABLE_NAME2 = "attendance";
     public static final String TABLE_NAME3 = "timetable";
@@ -22,37 +21,31 @@ public class StudentInfo extends SQLiteOpenHelper
     public static final String PNO = "period";
     public static final String DECE = "description1";
 
-    private static final String CREATE_TABLE = "create table "+TABLE_NAME+
-            "("+ROLLNO+" integer primary key ,"+NAME+" text,"+FNAME+" text,"+
-            MOBNO+" text,"+ADDRESS+" text);";
-    private static final String DROP_TABLE = "drop table if exists "+TABLE_NAME+";";
-
- //   private static final String CREATE_TABLE2 = "create table "+TABLE_NAME2+"(roll integer NOT NULL,curdate date not null," +
-       //     "record text, FOREIGN KEY("+ROLLNO+") REFERENCES "+TABLE_NAME+"("+ROLLNO+"));";
-   // private static final String DROP_TABLE2 = "drop table if exists "+TABLE_NAME2+";";
-
-    private static final String CREATE_TABLE3 = "create table timetable(period integer primary key ,description1 text);";
-    private static final String DROP_TABLE3 = "drop table if exists '"+TABLE_NAME3+"';";
-
-
     StudentInfo(Context context)
     {
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
-        Log.d("table", CREATE_TABLE3);
 
     }
 
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        String CREATE_TABLE = "create table "+TABLE_NAME+"("+ROLLNO+" integer primary key ,"+NAME+" text,"+FNAME+" text,"+ MOBNO+" text,"+ADDRESS+" text);";
+        String CREATE_TABLE3 = "create table timetable(period integer primary key ,description1 text);";
+        String CREATE_TABLE2 = "create table "+TABLE_NAME2+"(roll integer NOT NULL,curdate date not null," +"record text, FOREIGN KEY("+ROLLNO+") REFERENCES "+TABLE_NAME+"("+ROLLNO+"));";
         sqLiteDatabase.execSQL(CREATE_TABLE);
+        sqLiteDatabase.execSQL(CREATE_TABLE2);
         sqLiteDatabase.execSQL(CREATE_TABLE3);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        String DROP_TABLE3 = "drop table if exists '"+TABLE_NAME3+"';";
+        String DROP_TABLE = "drop table if exists "+TABLE_NAME+";";
+        String DROP_TABLE2 = "drop table if exists "+TABLE_NAME2+";";
         sqLiteDatabase.execSQL(DROP_TABLE);
+        sqLiteDatabase.execSQL(DROP_TABLE2);
         sqLiteDatabase.execSQL(DROP_TABLE3);
         onCreate(sqLiteDatabase);
        }

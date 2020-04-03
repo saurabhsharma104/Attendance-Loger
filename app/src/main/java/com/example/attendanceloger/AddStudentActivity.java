@@ -23,9 +23,6 @@ public class AddStudentActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_student);
     }
-
-
-
     public void addAStudent(View view) {
 
         EditText roll = (EditText)findViewById(R.id.editText5);
@@ -42,24 +39,24 @@ public class AddStudentActivity extends AppCompatActivity{
 
         int ro = Integer.parseInt(r);
 
-       if((n=="")||(f==null)||(m==null)||(a==null)||(r==null)) {
+        if((n=="")||(f==null)||(m==null)||(a==null)||(r==null)) {
             Toast.makeText(this, "Please fill all field...", Toast.LENGTH_SHORT).show();
             return;
         }
-       StudentInfo studentInfo = new StudentInfo(this);
-       SQLiteDatabase database = studentInfo.getWritableDatabase();
-       boolean bo =studentInfo.addStudentInTable(ro,n,f,m,a,database);
-       if(bo==true)
-           Toast.makeText(this, "Add Student Successfully...", Toast.LENGTH_SHORT).show();
-       else
-           Toast.makeText(this, "Add Student failed...", Toast.LENGTH_SHORT).show();
-       roll.setText("");
-       sname.setText("");
-       fname.setText("");
-       mobno.setText("");
-       address.setText("");
+        StudentInfo studentInfo = new StudentInfo(this);
+        SQLiteDatabase database = studentInfo.getWritableDatabase();
+        boolean bo =studentInfo.addStudentInTable(ro,n,f,m,a,database);
+        if(bo==true)
+            Toast.makeText(this, "Add Student Successfully...", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(this, "Add Student failed...", Toast.LENGTH_SHORT).show();
+        roll.setText("");
+        sname.setText("");
+        fname.setText("");
+        mobno.setText("");
+        address.setText("");
 
-       database.close();
+        database.close();
 
     }
 

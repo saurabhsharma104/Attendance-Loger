@@ -40,7 +40,7 @@ public class TimeTableActivity extends AppCompatActivity {
             String pno1 = Integer.toString(cursor.getInt(cursor.getColumnIndex(StudentInfo.PNO)));
             String desc1 =   cursor.getString(cursor.getColumnIndex(StudentInfo.DECE));
 
-            result = result+"Period No  : "+pno1+"\nDescription : "+desc1+"\n\n\n";
+            result = result+"Period No    :   "+pno1+"\nDescription   :   "+desc1+"\n\n\n";
         }
 
         textView.setText(result);
