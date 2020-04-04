@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class StudentInfo extends SQLiteOpenHelper
 {
     private static final String DATABASE_NAME = "appdb";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     public static final String TABLE_NAME = "students";
     public static final String TABLE_NAME2 = "attendance";
     public static final String TABLE_NAME3 = "timetable";
@@ -32,7 +32,8 @@ public class StudentInfo extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String CREATE_TABLE = "create table "+TABLE_NAME+"("+ROLLNO+" integer primary key ,"+NAME+" text,"+FNAME+" text,"+ MOBNO+" text,"+ADDRESS+" text);";
         String CREATE_TABLE3 = "create table timetable(period integer primary key ,description1 text);";
-        String CREATE_TABLE2 = "create table "+TABLE_NAME2+"(roll integer NOT NULL,curdate date not null," +"record text, FOREIGN KEY("+ROLLNO+") REFERENCES "+TABLE_NAME+"("+ROLLNO+"));";
+        String CREATE_TABLE2 = "create table "+TABLE_NAME2+"(roll integer ,cur_date text,record text);";
+
         sqLiteDatabase.execSQL(CREATE_TABLE);
         sqLiteDatabase.execSQL(CREATE_TABLE2);
         sqLiteDatabase.execSQL(CREATE_TABLE3);
@@ -60,17 +61,15 @@ public class StudentInfo extends SQLiteOpenHelper
         return cursor;
     }
 
-    public String addAttendance(int r,String d,String re,SQLiteDatabase database)
+    public boolean addAttendance(int r,String d,String re,SQLiteDatabase database)
     {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("roll",r);
-        contentValues.put("curdate",d);
-        contentValues.put("record",re);
-        long res = database.insert("attendance",null,contentValues);
+        ContentValues contentValues2 = new ContentValues();
+        contentValues2.put("roll",r);
+        contentValues2.put("cur_date",d);
+        contentValues2.put("record",re);
+        long res = database.insert("attendance",null,contentValues2);
 
-        if (res==-1)
-            return "Add Attendance Failed";
-        return "Add Attendance Successfully.....";
+        return res!=-1;
     }
 
     public boolean addStudentInTable(int r,String n,String f,String m,String a,SQLiteDatabase database)
@@ -92,7 +91,7 @@ public class StudentInfo extends SQLiteOpenHelper
         contentValues1.put(PNO,p);
         contentValues1.put(DECE,d);
         long res;
-            res = database.insert(TABLE_NAME3,null,contentValues1);
+        res = database.insert(TABLE_NAME3,null,contentValues1);
 
         return res!=-1;
     }
@@ -103,8 +102,26 @@ public class StudentInfo extends SQLiteOpenHelper
         Cursor cursor = sqLiteDatabase.query(TABLE_NAME3,projections,null,null,null,null,null,null);
 
         return cursor;
-
     }
+    public Cursor showClassWise()
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String[] projections = {ROLLNO,NAME,FNAME,MOBNO,ADDRESS};
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME,projections,null,null,null,null,null,null);
+
+        return cursor;
+    }
+
+    public Cursor showStudentWise()
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String[] projections = {ROLLNO,NAME,FNAME,MOBNO,ADDRESS};
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME,projections,null,null,null,null,null,null);
+
+        return cursor;
+    }
+
+
 
 
 

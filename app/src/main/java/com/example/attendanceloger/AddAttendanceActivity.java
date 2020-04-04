@@ -1,13 +1,16 @@
 package com.example.attendanceloger;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 public class AddAttendanceActivity extends AppCompatActivity {
@@ -16,82 +19,99 @@ public class AddAttendanceActivity extends AppCompatActivity {
     Cursor cursor;
     String currentDate;
 
-    //TextView textView9 = findViewById(R.id.textView9);
-    //TextView textView11 = findViewById(R.id.textView11);
-    //TextView textView13 = findViewById(R.id.textView13);
+    TextView textViewa;
+    TextView textViewb;
+    TextView textViewc;
 
 
+
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_attendance);
 
-        //TextView textView = findViewById(R.id.textView14);
-       // SimpleDateFormat sdf;
-        //sdf = new SimpleDateFormat("dd.MM.yyyy");
-        //currentDate = sdf.format(new Date());
-        //textView.setText(currentDate);
+        textViewa = this.findViewById(R.id.textView8);
+        textViewb = this.findViewById(R.id.textView9);
+        textViewc = this.findViewById(R.id.textView6);
+
+
+        TextView textView = this.findViewById(R.id.textView10);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        currentDate = sdf.format(new Date());
+        textView.setText(currentDate);
 
         try {
             StudentInfo studentInfo = new StudentInfo(this);
             cursor = studentInfo.readStudent();
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(this, "Not view bcoz no read student  ", Toast.LENGTH_SHORT).show();
-        }
-        try{
+
             if(cursor.moveToNext()) {
+
                 String rollno = Integer.toString(cursor.getInt(cursor.getColumnIndex(StudentInfo.ROLLNO)));
                 String name = cursor.getString(cursor.getColumnIndex(StudentInfo.NAME));
                 String fname = cursor.getString(cursor.getColumnIndex(StudentInfo.FNAME));
-                //textView9.setText(name);
-                //textView11.setText(fname);
-                //textView13.setText(rollno);
+                textViewa.setText(name);
+                textViewb.setText(fname);
+                textViewc.setText(rollno);
+                roll = Integer.valueOf(rollno);
+
             }
+
         }
         catch (Exception e)
         {
             Toast.makeText(this, "Not view......... ", Toast.LENGTH_SHORT).show();
         }
-
-
-
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public  void absent(View view)
     {
-        absentPresent("A");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        currentDate = sdf.format(new Date());
+        absentPresent("Absent",currentDate);
+
     }
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void present(View view)
     {
-        absentPresent("P");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        currentDate = sdf.format(new Date());
+        absentPresent("Present",currentDate);
     }
 
 
-    public void absentPresent(String re) {
+    public void absentPresent(String re,String cur) {
+        try {
 
-        StudentInfo studentInfo = new StudentInfo(this);
-        SQLiteDatabase database = studentInfo.getWritableDatabase();
-        String msg = studentInfo.addAttendance(roll, currentDate, re, database);
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+            StudentInfo studentInfo = new StudentInfo(this);
+            SQLiteDatabase database = studentInfo.getWritableDatabase();
+            boolean msg = studentInfo.addAttendance(roll,cur, re, database);
+            if (msg)
+                Toast.makeText(this, "Add Attendance Successfully...", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(this, "Add Attendance failed...", Toast.LENGTH_SHORT).show();
 
-        if (cursor.moveToNext()) {
-            roll = cursor.getInt(cursor.getColumnIndex(StudentInfo.ROLLNO));
-            String name = cursor.getString(cursor.getColumnIndex(StudentInfo.NAME));
-            String fname = cursor.getString(cursor.getColumnIndex(StudentInfo.FNAME));
-            //textView9.setText(name);
-            //textView11.setText(fname);
-            //textView13.setText(roll);
+            if (cursor.moveToNext()) {
+                String rollno = Integer.toString(cursor.getInt(cursor.getColumnIndex(StudentInfo.ROLLNO)));
+                String name = cursor.getString(cursor.getColumnIndex(StudentInfo.NAME));
+                String fname = cursor.getString(cursor.getColumnIndex(StudentInfo.FNAME));
+                textViewa.setText(name);
+                textViewb.setText(fname);
+                roll = Integer.valueOf(rollno);
+                textViewc.setText(rollno);
 
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Attendance taken successfully completed......", Toast.LENGTH_SHORT).show();
+               } else {
+                Toast.makeText(this, "Attendance taken successfully completed......", Toast.LENGTH_SHORT).show();
 
+            }
+            database.close();
         }
-        database.close();
-
-
+        catch (Exception e)
+        {
+            Toast.makeText(this, "One exception occur...", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
