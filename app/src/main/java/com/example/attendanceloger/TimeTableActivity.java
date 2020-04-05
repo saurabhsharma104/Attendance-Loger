@@ -44,12 +44,18 @@ public class TimeTableActivity extends AppCompatActivity {
         }
 
         textView.setText(result);
-        Toast.makeText(this, "View Student Successfully...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "View TimeTable Successfully...", Toast.LENGTH_SHORT).show();
         }
         catch (Exception e)
         {
             Toast.makeText(this, "Not view......... ", Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    public void deletePeriod(View view) {
+        Intent intent = new Intent(this,DeletePeriodActivity.class);
+        startActivity(intent);
 
     }
 }

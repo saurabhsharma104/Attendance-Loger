@@ -43,7 +43,7 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="e.g :-  1"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/editText9" />
@@ -70,9 +70,10 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="e.g :- 14/04/2020"
-        android:inputType="textPersonName"
+        android:inputType="date"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/enterdate" />
 
     <Button
         android:id="@+id/button12"
@@ -83,6 +84,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:onClick="viewAStudent"
         android:text="Show Student Wise"
         android:textColor="@color/design_default_color_primary"
         android:textSize="24sp"
@@ -106,14 +108,13 @@
         app:layout_constraintTop_toBottomOf="@+id/button12" />
 
     <EditText
-        android:id="@+id/editText10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/enterdate"
+        android:layout_width="213dp"
+        android:layout_height="43dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:ems="10"
         android:hint="e.g :- 14/04/2020"
-        android:inputType="textPersonName"
+        android:inputType="date"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView14"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -127,6 +128,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="283dp"
+        android:onClick="viewClass"
         android:text="Show Class Wise"
         android:textColor="@color/design_default_color_primary"
         android:textSize="24sp"
@@ -135,6 +137,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText10"
+        app:layout_constraintTop_toBottomOf="@+id/enterdate"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

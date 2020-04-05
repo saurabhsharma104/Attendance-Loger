@@ -20,7 +20,7 @@
     <string name="enterclass">CLASS</string>
     <string name="present">Present</string>
     <string name="absent">Absent</string>
-    <string name="help">RESULT NOT FOUND....</string>
+    <string name="help">Not Found</string>
     <string name="changebg">Change Background</string>
     <string name="viewallstudents">NO DATA FOUND</string>
     <string name="add">Add Time Table</string>

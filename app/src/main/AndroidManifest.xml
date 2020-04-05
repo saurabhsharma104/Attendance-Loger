@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TimeTable2"></activity>
+        <activity android:name=".DeletePeriodActivity"></activity>
+        <activity android:name=".StudentWiseActivity" />
+        <activity android:name=".ClassWiseActivity" />
+        <activity android:name=".TimeTable2" />
         <activity android:name=".HelpAppActivity" />
-        <activity android:name=".ChangeBackgroundActivity" />
         <activity android:name=".AboutUsActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".TimeTableActivity" />

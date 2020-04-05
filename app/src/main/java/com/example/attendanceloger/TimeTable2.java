@@ -34,9 +34,9 @@ public class TimeTable2 extends AppCompatActivity {
 
         boolean bo =studentInfo.addTimeTable(po,a,database);
         if(bo)
-            Toast.makeText(this, "Add Student Successfully...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Add TimeTable Successfully...", Toast.LENGTH_SHORT).show();
         else
-            Toast.makeText(this, "Add Student failed...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Add TimeTable failed...", Toast.LENGTH_SHORT).show();
 
         pno1.setText("");
         descrip1.setText("");

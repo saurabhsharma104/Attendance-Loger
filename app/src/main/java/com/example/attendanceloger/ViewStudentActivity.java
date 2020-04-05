@@ -22,25 +22,28 @@ public class ViewStudentActivity extends AppCompatActivity {
         StudentInfo studentInfo = new StudentInfo(this);
         try {
             cursor = studentInfo.readStudent();
+            String result = "";
+
+            while (cursor.moveToNext())
+            {
+                String rollno = Integer.toString(cursor.getInt(cursor.getColumnIndex(StudentInfo.ROLLNO)));
+                String name =   cursor.getString(cursor.getColumnIndex(StudentInfo.NAME));
+                String fname =   cursor.getString(cursor.getColumnIndex(StudentInfo.FNAME));
+                String mob =   cursor.getString(cursor.getColumnIndex(StudentInfo.MOBNO));
+                String address =   cursor.getString(cursor.getColumnIndex(StudentInfo.ADDRESS));
+
+                result += "\n RollNo                 :    " + rollno + "\n Student's Name :  " + name + "\n Father's Name    :  " + fname +
+                        "\n Mobile No           :  "+mob+"\n Address              :  "+address+"\n\n";
+
+            }
+
+            textView.setText(result);
+            Toast.makeText(this, "View Student Successfully...", Toast.LENGTH_SHORT).show();
         }
         catch (Exception e)
         {
             Toast.makeText(this, "Not view......... ", Toast.LENGTH_SHORT).show();
         }
-        String result = "";
-        while (cursor.moveToNext())
-        {
-            String rollno = Integer.toString(cursor.getInt(cursor.getColumnIndex(StudentInfo.ROLLNO)));
-            String name =   cursor.getString(cursor.getColumnIndex(StudentInfo.NAME));
-            String fname =   cursor.getString(cursor.getColumnIndex(StudentInfo.FNAME));
-            String mob =   cursor.getString(cursor.getColumnIndex(StudentInfo.MOBNO));
-            String address =   cursor.getString(cursor.getColumnIndex(StudentInfo.ADDRESS));
-
-            result = result+"Student RollNo  : "+rollno+"\nStudent's Name : "+name+"\nFather's Name   : "+fname+"\nMobile Number  : "+mob+"\nAddress\t            : "+address+"\n\n\n";
-        }
-
-        textView.setText(result);
-        Toast.makeText(this, "View Student Successfully...", Toast.LENGTH_SHORT).show();
 
     }
 }

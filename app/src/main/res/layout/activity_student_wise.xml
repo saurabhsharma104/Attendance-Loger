@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    tools:context=".AddAttendanceActivity">
+    tools:context=".StudentWiseActivity">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/addattendance"
+        android:text="Student Attendance"
         android:textColor="@color/design_default_color_primary"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -76,29 +74,6 @@
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="119dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="68dp"
-        android:onClick="absent"
-        android:text="@string/absent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="123dp"
-        android:layout_height="52dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:onClick="present"
-        android:text="@string/present"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="138dp"
@@ -106,10 +81,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:padding="2dp"
-        android:text="1"
+        android:text="@string/help"
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView24" />
 
     <TextView
         android:id="@+id/textView8"
@@ -118,7 +94,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:padding="2dp"
-        android:text="Saurabh Sharma"
+        android:text="@string/help"
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -131,7 +107,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:padding="2dp"
-        android:text="Ashok Sharma"
+        android:text="@string/help"
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -144,10 +120,33 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:padding="2dp"
-        android:text="02/12/2000"
+        android:text="@string/help"
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="RECORD"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="138dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="@string/help"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView22"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

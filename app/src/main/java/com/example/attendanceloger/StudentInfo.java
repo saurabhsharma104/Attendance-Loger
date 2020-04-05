@@ -32,11 +32,12 @@ public class StudentInfo extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String CREATE_TABLE = "create table "+TABLE_NAME+"("+ROLLNO+" integer primary key ,"+NAME+" text,"+FNAME+" text,"+ MOBNO+" text,"+ADDRESS+" text);";
         String CREATE_TABLE3 = "create table timetable(period integer primary key ,description1 text);";
-        String CREATE_TABLE2 = "create table "+TABLE_NAME2+"(roll integer ,cur_date text,record text);";
+        String CREATE_TABLE2 = "create table "+TABLE_NAME2+"(roll integer ,cur_date text,record text,primary key (roll,cur_date));";
 
         sqLiteDatabase.execSQL(CREATE_TABLE);
         sqLiteDatabase.execSQL(CREATE_TABLE2);
         sqLiteDatabase.execSQL(CREATE_TABLE3);
+
 
     }
 
@@ -103,23 +104,41 @@ public class StudentInfo extends SQLiteOpenHelper
 
         return cursor;
     }
-    public Cursor showClassWise()
+    public Cursor showClassWise(String da)
     {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        String[] projections = {ROLLNO,NAME,FNAME,MOBNO,ADDRESS};
-        Cursor cursor = sqLiteDatabase.query(TABLE_NAME,projections,null,null,null,null,null,null);
+        String[] projections = {"roll","cur_date","record"};
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME2,projections,"cur_date LIKE ?",new String[]{da},null,null,null,null);
 
         return cursor;
     }
 
-    public Cursor showStudentWise()
+    public Cursor showStudentWise(String ro, String de)
     {
+
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        String[] projections = {ROLLNO,NAME,FNAME,MOBNO,ADDRESS};
-        Cursor cursor = sqLiteDatabase.query(TABLE_NAME,projections,null,null,null,null,null,null);
+        String[] projections = {"roll","cur_date","record"};
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME2,projections,"cur_date LIKE ? and roll LIKE ?",new String[]{de,ro},null,null,null,null);
 
         return cursor;
     }
+
+    public Cursor readOneStudent(String r)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String[] projections = {NAME,FNAME};
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME,projections, StudentInfo.ROLLNO+" LIKE ? ",new String[]{r},null,null,null,null);
+
+        return cursor;
+    }
+
+    public  boolean deletePeriodInTable(Integer a)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        return sqLiteDatabase.delete(TABLE_NAME3,"period=?",new String[]{a.toString()})>0;
+
+    }
+
 
 
 
