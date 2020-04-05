@@ -138,7 +138,12 @@ public class StudentInfo extends SQLiteOpenHelper
         return sqLiteDatabase.delete(TABLE_NAME3,"period=?",new String[]{a.toString()})>0;
 
     }
+    public  boolean deleteStudentInTable(Integer a)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        return sqLiteDatabase.delete(TABLE_NAME,StudentInfo.ROLLNO+"=?",new String[]{a.toString()})>0;
 
+    }
 
 
 

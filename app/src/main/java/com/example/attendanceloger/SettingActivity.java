@@ -25,10 +25,5 @@ public class SettingActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void changeBackground(View view) {
-        Intent intent;
-        intent = new Intent(this,ChangeBackgroundActivity.class);
-        startActivity(intent);
 
-    }
 }

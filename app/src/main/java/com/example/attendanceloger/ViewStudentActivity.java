@@ -2,8 +2,10 @@ package com.example.attendanceloger;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +46,14 @@ public class ViewStudentActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Not view......... ", Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    public void clickForDelete(View view) {
+
+
+        Intent intent = new Intent(this,DeleteSudentActivity.class);
+        startActivity(intent);
 
     }
 }
