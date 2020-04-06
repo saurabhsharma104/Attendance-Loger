@@ -10,9 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="225dp"
-        tools:layout_editor_absoluteY="144dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView18"
@@ -28,22 +36,32 @@
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="59dp"
             android:onClick="aboutUs"
             android:padding="5dp"
             android:shadowColor="@color/colorAccent"
-            android:text="DEVELOPER"
-            android:textSize="30sp" />
+            android:text="ABOUT US"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="63dp"
             android:onClick="helpApp"
             android:padding="5dp"
             android:shadowColor="@color/colorAccent"
             android:text="HELP"
-            android:textSize="30sp" />
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:onClick="develop"
+            android:padding="5dp"
+            android:shadowColor="@color/colorAccent"
+            android:text="DEVELOPER"
+            android:textSize="18sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

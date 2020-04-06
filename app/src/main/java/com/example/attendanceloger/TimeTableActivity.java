@@ -44,7 +44,7 @@ public class TimeTableActivity extends AppCompatActivity {
         }
 
         textView.setText(result);
-        Toast.makeText(this, "View TimeTable Successfully...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "if you want to delete a period then click on it.", Toast.LENGTH_SHORT).show();
         }
         catch (Exception e)
         {

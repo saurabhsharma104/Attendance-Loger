@@ -26,4 +26,8 @@ public class SettingActivity extends AppCompatActivity {
     }
 
 
+    public void develop(View view) {
+        Intent intent = new Intent(this,DeveloperActivity.class);
+        startActivity(intent);
+    }
 }
