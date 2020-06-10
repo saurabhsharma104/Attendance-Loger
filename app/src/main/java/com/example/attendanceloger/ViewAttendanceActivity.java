@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 public class ViewAttendanceActivity extends AppCompatActivity {
 
-    public static String roll,date;
+    public static String roll,start_date,end_date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +25,21 @@ public class ViewAttendanceActivity extends AppCompatActivity {
         roll = editText.getText().toString();
 
         EditText editText1 = this.findViewById(R.id.editText9);
-        date = editText1.getText().toString();
+        start_date = editText1.getText().toString();
 
-        Intent intent = new Intent(this,StudentWiseActivity.class);
-        startActivity(intent);
+        EditText editText2 = this.findViewById(R.id.editText13);
+        end_date = editText2.getText().toString();
+
+        if ((start_date.equals(end_date))||(start_date.isEmpty())||(end_date.isEmpty()))
+        {
+            Intent intent = new Intent(this, StudentWiseActivity.class);
+            startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent(this,MultiStudentAttendance.class);
+            startActivity(intent);
+        }
 
     }
 
@@ -51,6 +62,13 @@ public class ViewAttendanceActivity extends AppCompatActivity {
     public String getDate()
     {
 
-        return date;
+        return start_date;
     }
+
+    public String getDate2()
+    {
+
+        return end_date;
+    }
+
 }

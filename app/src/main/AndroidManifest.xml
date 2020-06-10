@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DeveloperActivity"></activity>
+        <activity android:name=".MultiStudentAttendance"></activity>
+        <activity android:name=".DeveloperActivity" />
         <activity android:name=".DeleteSudentActivity" />
         <activity android:name=".DeletePeriodActivity" />
         <activity android:name=".StudentWiseActivity" />

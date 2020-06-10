@@ -13,6 +13,7 @@ public class ViewStudentActivity extends AppCompatActivity {
 
     Cursor cursor;
     TextView textView;
+    int flag=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class ViewStudentActivity extends AppCompatActivity {
 
             while (cursor.moveToNext())
             {
+                flag =1;
                 String rollno = Integer.toString(cursor.getInt(cursor.getColumnIndex(StudentInfo.ROLLNO)));
                 String name =   cursor.getString(cursor.getColumnIndex(StudentInfo.NAME));
                 String fname =   cursor.getString(cursor.getColumnIndex(StudentInfo.FNAME));
@@ -39,8 +41,11 @@ public class ViewStudentActivity extends AppCompatActivity {
 
             }
 
-            textView.setText(result);
-            Toast.makeText(this,"if you want to delete a student then click on it.", Toast.LENGTH_SHORT).show();
+            if(flag==1) {
+
+                textView.setText(result);
+                Toast.makeText(this, "if you want to delete a student then click on it.", Toast.LENGTH_SHORT).show();
+            }
         }
         catch (Exception e)
         {

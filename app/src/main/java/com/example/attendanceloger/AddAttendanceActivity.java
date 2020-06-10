@@ -35,8 +35,7 @@ public class AddAttendanceActivity extends AppCompatActivity {
         textViewa = this.findViewById(R.id.textView8);
         textViewb = this.findViewById(R.id.textView9);
         textViewc = this.findViewById(R.id.textView6);
-
-
+        int flag = 0;
         TextView textView = this.findViewById(R.id.textView10);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         currentDate = sdf.format(new Date());
@@ -55,7 +54,12 @@ public class AddAttendanceActivity extends AppCompatActivity {
                 textViewb.setText(fname);
                 textViewc.setText(rollno);
                 roll = Integer.valueOf(rollno);
+                flag=1;
 
+            }
+            else
+            {
+                Toast.makeText(this, "Please add Student.... ", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -88,9 +92,7 @@ public class AddAttendanceActivity extends AppCompatActivity {
             StudentInfo studentInfo = new StudentInfo(this);
             SQLiteDatabase database = studentInfo.getWritableDatabase();
             boolean msg = studentInfo.addAttendance(roll,cur, re, database);
-            if (msg)
-                Toast.makeText(this, "Add Attendance Successfully...", Toast.LENGTH_SHORT).show();
-            else
+            if (!(msg))
                 Toast.makeText(this, "Add Attendance failed...", Toast.LENGTH_SHORT).show();
 
             if (cursor.moveToNext()) {

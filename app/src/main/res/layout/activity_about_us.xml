@@ -21,6 +21,7 @@ The application will provide the functionality of  track the root of college veh
 The application will provide the time table information of teachers.
 The application will provide the limited time for take attendance.\nThe app eliminates the use of paperwork needed for attendance marking and monitoring. This gives over all performance of class in attendance. The guardian’s will able to check the absence or presence of their ward with the help of this app. This application is very helpful for the teachers. Attendance loger is to develop for computerized the tradition way of taking attendance. Teachers can fill the attendance of students in this app.
 "
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
 

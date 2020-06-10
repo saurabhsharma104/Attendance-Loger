@@ -20,8 +20,13 @@ public class StudentWiseActivity extends AppCompatActivity {
         TextView textView4 = this.findViewById(R.id.textView6);
         TextView textView5 = this.findViewById(R.id.textView24);
         ViewAttendanceActivity viewAttendanceActivity = new ViewAttendanceActivity();
+
         String roll = viewAttendanceActivity.getRoll();
         String date = viewAttendanceActivity.getDate();
+        if(date.isEmpty())
+        {
+            date = viewAttendanceActivity.getDate2();
+        }
 
 
         StudentInfo studentInfo = new StudentInfo(this);

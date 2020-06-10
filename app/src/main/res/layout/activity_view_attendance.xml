@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:background="@color/colorPrimaryDark"
         android:text="@string/viewattendance"
         android:textColor="@color/design_default_color_primary_dark"
         android:textSize="36sp"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:text="@string/enterrollno"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
@@ -50,10 +51,10 @@
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="60dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="52dp"
-        android:text="Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="START DATE"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -73,7 +74,7 @@
         android:inputType="date"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/enterdate" />
+        app:layout_constraintStart_toStartOf="@+id/editText13" />
 
     <Button
         android:id="@+id/button12"
@@ -90,17 +91,18 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText9" />
+        app:layout_constraintTop_toBottomOf="@+id/editText13" />
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="71dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="40dp"
-        android:text="Date"
+        android:text="DATE"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -111,12 +113,15 @@
         android:id="@+id/enterdate"
         android:layout_width="213dp"
         android:layout_height="43dp"
+        android:layout_marginStart="126dp"
+        android:layout_marginLeft="126dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:hint="e.g :- 14/04/2020"
         android:inputType="date"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView14"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView14" />
 
     <Button
         android:id="@+id/button13"
@@ -139,4 +144,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterdate"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="END DATE"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <EditText
+        android:id="@+id/editText13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="e.g :- 15/04/2020"
+        android:inputType="date"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/enterdate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

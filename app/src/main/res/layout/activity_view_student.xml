@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
+    android:background="@color/colorAccent"
     tools:context=".ViewStudentActivity">
 
     <TextView
@@ -13,10 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginTop="32dp"
+        android:background="@color/colorAccent"
         android:onClick="clickForDelete"
         android:padding="5dp"
         android:text="@string/viewallstudents"
-        android:textColor="@color/design_default_color_primary_dark"
+        android:textColor="@color/design_default_color_primary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

@@ -144,9 +144,12 @@ public class StudentInfo extends SQLiteOpenHelper
         return sqLiteDatabase.delete(TABLE_NAME,StudentInfo.ROLLNO+"=?",new String[]{a.toString()})>0;
 
     }
+    public Cursor multiAttendance(String r)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String[] projections = {"roll","cur_date","record"};
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME2,projections,"roll LIKE ?",new String[]{r},null,null,null,null);
 
-
-
-
-
+        return cursor;
+    }
 }
