@@ -9,7 +9,9 @@ import android.widget.*;
 
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    public String[] arraySpinner;
+
+    Spinner spinner;
+    public static String item = "Select Class / Lectures";
 
 
     @Override
@@ -17,13 +19,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        arraySpinner = new String[]{"Select Class / Lectures ", "First", "Second", "Third", "Forth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth", "Eleven", "Twelve"};
-
-        Spinner s = findViewById(R.id.simpleSpinner);
-        ArrayAdapter<String> adapter;
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, arraySpinner);
+        spinner = findViewById(R.id.simpleSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.arraySpinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s.setAdapter(adapter);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 
     }
 
@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        item = adapterView.getItemAtPosition(i).toString();
+
 
     }
 

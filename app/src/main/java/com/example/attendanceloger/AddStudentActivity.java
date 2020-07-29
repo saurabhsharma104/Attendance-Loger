@@ -39,13 +39,20 @@ public class AddStudentActivity extends AppCompatActivity{
 
         int ro = Integer.parseInt(r);
 
-        if((n=="")||(f==null)||(m==null)||(a==null)||(r==null)) {
-            Toast.makeText(this, "Please fill all field...", Toast.LENGTH_SHORT).show();
-            return;
-        }
+       // if((n=="")||(f==null)||(m==null)||(a==null)||(r==null)) {
+        //    Toast.makeText(this, "Please fill all field...", Toast.LENGTH_SHORT).show();
+         //   return;
+       // }
         StudentInfo studentInfo = new StudentInfo(this);
-        SQLiteDatabase database = studentInfo.getWritableDatabase();
-        boolean bo =studentInfo.addStudentInTable(ro,n,f,m,a,database);
+        boolean bo=false;
+        try {
+            SQLiteDatabase database = studentInfo.getWritableDatabase();
+            bo= studentInfo.addStudentInTable(ro, n, f, m, a, database);
+
+        }catch (Exception e)
+        {
+            Toast.makeText(this, e+"", Toast.LENGTH_SHORT).show();
+        }
         if(bo==true)
             Toast.makeText(this, "Add Student Successfully...", Toast.LENGTH_SHORT).show();
         else
@@ -55,8 +62,6 @@ public class AddStudentActivity extends AppCompatActivity{
         fname.setText("");
         mobno.setText("");
         address.setText("");
-
-        database.close();
 
     }
 

@@ -1,4 +1,15 @@
 <resources>
+    <string-array name="arraySpinner">
+        <item>Select Class / Lectures</item>
+        <item>First</item>
+        <item>Second</item>
+        <item>Third</item>
+        <item>Forth</item>
+        <item>Fifth</item>
+        <item>Sixth</item>
+        <item>Seventh</item>
+        <item>Eighth</item>
+    </string-array>
     <string name="app_name">Attendance Loger</string>
     <string name="bgimage">for bgimage</string>
     <string name="developer">by saurabh sharma</string>

@@ -46,10 +46,11 @@ public class ViewStudentActivity extends AppCompatActivity {
                 textView.setText(result);
                 Toast.makeText(this, "if you want to delete a student then click on it.", Toast.LENGTH_SHORT).show();
             }
+
         }
         catch (Exception e)
         {
-            Toast.makeText(this, "Not view......... ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, e+"Not view......... ", Toast.LENGTH_SHORT).show();
         }
 
     }
